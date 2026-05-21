@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vijay Solanki | Full Stack Developer</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:700;
+      color:#4d7cff;
+    }
+
+    nav ul{
+      display:flex;
+      gap:35px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:17px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#4d7cff;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:120px 8%;
+      gap:70px;
+      flex-wrap:wrap;
+      position:relative;
+      overflow:hidden;
+
+      background:
+      radial-gradient(circle at top right,#1d3cff33,transparent 40%),
+      radial-gradient(circle at bottom left,#00d4ff22,transparent 30%);
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#4d7cff;
+      border-radius:50%;
+      filter:blur(150px);
+      opacity:0.18;
+      top:-100px;
+      right:-100px;
+    }
+
+    .hero::after{
+      content:'';
+      position:absolute;
+      width:350px;
+      height:350px;
+      background:#7b2fff;
+      border-radius:50%;
+      filter:blur(140px);
+      opacity:0.15;
+      bottom:-120px;
+      left:-100px;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+      z-index:2;
+    }
+
+    .hero-text h3{
+      font-size:28px;
+      color:#bcbcbc;
+      margin-bottom:10px;
+      font-weight:400;
+    }
+
+    .hero-text h1{
+      font-size:85px;
+      line-height:1.1;
+      margin-bottom:15px;
+      font-weight:800;
+    }
+
+    .hero-text h1 span{
+      color:#4d7cff;
+    }
+
+    .typing-box{
+      display:inline-block;
+      padding:16px 24px;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      margin-top:10px;
+      margin-bottom:25px;
+      background:rgba(255,255,255,0.03);
+      backdrop-filter:blur(10px);
+    }
+
+    .typing{
+      font-size:28px;
+      font-weight:500;
+      color:#4d7cff;
+    }
+
+    .desc{
+      max-width:600px;
+      line-height:1.9;
+      color:#cfcfcf;
+      margin-bottom:35px;
+      font-size:17px;
+    }
+
+    .btns{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:15px 35px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:17px;
+      transition:0.3s;
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    .btn-primary{
+      background:#4d7cff;
+      color:white;
+      box-shadow:0 0 35px rgba(77,124,255,0.4);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px);
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+      background:rgba(255,255,255,0.03);
+    }
+
+    .btn-outline:hover{
+      background:#4d7cff;
+    }
+
+    /* IMAGE */
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      min-width:300px;
+      position:relative;
+      z-index:2;
+    }
+
+    /*.circle{
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#4d7cff,#7b2fff);
+      position:absolute;
+      filter:blur(120px);
+      opacity:0.35;
+    }*/
+    .circle {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4d7cff, #7b2fff);
+  position: absolute;
+  filter: blur(120px);
+  opacity: 0.4;
+}
+
+    /*.hero-image img{
+      width:420px;
+      height:620px;
+      object-fit:cover;
+      border-radius:40px;
+      position:relative;
+      z-index:1;
+      box-shadow:
+      0 0 60px rgba(77,124,255,0.35),
+      0 10px 50px rgba(0,0,0,0.6);
+
+      filter:grayscale(100%);
+      border:1px solid rgba(255,255,255,0.08);
+    }*/.hero-image img {
+  width: 420px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  
+  border: 6px solid rgba(255, 255, 255, 0.08);
+  
+  box-shadow:
+    0 0 80px rgba(77, 124, 255, 0.45),
+    0 0 140px rgba(123, 47, 255, 0.25),
+    0 10px 50px rgba(0, 0, 0, 0.6);
+  
+  filter: grayscale(100%);
+}
+
+    /* ABOUT */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .glass-box{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter:blur(14px);
+      border-radius:30px;
+      padding:50px;
+      box-shadow:0 0 40px rgba(0,0,0,0.4);
+    }
+
+    .title{
+      font-size:42px;
+      margin-bottom:40px;
+      text-align:center;
+      font-weight:700;
+    }
+
+    .title span{
+      color:#4d7cff;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:start;
+    }
+
+    .about p{
+      line-height:2;
+      color:#cfcfcf;
+      font-size:17px;
+    }
+
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .skill{
+      background:#10172d;
+      padding:22px;
+      border-radius:16px;
+      text-align:center;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    .skill:hover{
+      transform:translateY(-8px);
+      background:#162042;
+    }
+
+    .skill i{
+      font-size:35px;
+      margin-bottom:10px;
+      color:#4d7cff;
+    }
+
+    .skill h4{
+      font-weight:500;
+    }
+
+    /* PROJECTS */
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:#10172d;
+      border-radius:22px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    .project-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .project-content{
+      padding:22px;
+    }
+
+    .project-content h3{
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .project-content p{
+      color:#bcbcbc;
+      line-height:1.8;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      text-align:center;
+    }
+
+    .socials{
+      margin-top:30px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+
+    .socials a{
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      background:#10172d;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:22px;
+      transition:0.3s;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.05);
+    }
+
+    .socials a:hover{
+      background:#4d7cff;
+      transform:translateY(-5px);
+    }
+
+    footer{
+      padding:25px;
+      text-align:center;
+      background:#02040d;
+      color:#888;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:950px){
+
+      .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:55px;
+      }
+
+      .about{
+        grid-template-columns:1fr;
+      }
+
+      .skills{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      nav ul{
+        display:none;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero-text h1{
+        font-size:42px;
+      }
+
+      .typing{
+        font-size:22px;
+      }
+
+      .skills{
+        grid-template-columns:1fr;
+      }
+
+      .hero-image img{
+        width:290px;
+        height:500px;
+      }
+
+      .circle{
+        width:320px;
+        height:320px;
+      }
+
+      .glass-box{
+        padding:30px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">&lt;D/&gt; Developer</div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h3>Hello, I'm</h3>
+
+      <h1>
+        <span>VIJAY</span> SOLANKI
+      </h1>
+
+      <div class="typing-box">
+        <div class="typing">
+          <span id="typing"></span>
+        </div>
+      </div>
+
+      <p class="desc">
+        I build modern, responsive and scalable web applications.
+        Passionate Full Stack Developer focused on creating beautiful
+        user experiences and powerful backend systems.
+      </p>
+
+      <div class="btns">
+        <a href="#" class="btn btn-primary">View Projects</a>
+        <a href="#" class="btn btn-outline">Contact Me</a>
+      </div>
+
+    </div>
+
+    <!-- IMAGE -->
+
+    <div class="hero-image">
+
+      <div class="circle"></div>
+
+      <img src="https://i.ibb.co/LDPd8CyD/Picsart-25-06-09-18-35-47-444-1.png" alt="developer">
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <div class="glass-box">
+
+      <h2 class="title">About <span>Me</span></h2>
+
+      <div class="about">
+
+        <div>
+          <p>
+            I'm a passionate Full Stack Web Developer from India.
+            I love creating high-performance websites with modern UI designs.
+            I work with HTML, CSS, JavaScript, React, Node.js, MongoDB and more.
+            My goal is to build premium quality websites and web apps.
+          </p>
+        </div>
+
+        <div class="skills">
+
+          <div class="skill">
+            <i class="fa-brands fa-html5"></i>
+            <h4>HTML5</h4>
+          </div>
+
+          <div class="skill">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h4>CSS3</h4>
+          </div>
+
+          <div class="skill">
+            <i class="fa-brands fa-js"></i>
+            <h4>JavaScript</h4>
+          </div>
+
+          <div class="skill">
+            <i class="fa-brands fa-react"></i>
+            <h4>React</h4>
+          </div>
+
+          <div class="skill">
+            <i class="fa-brands fa-node-js"></i>
+            <h4>Node.js</h4>
+          </div>
+
+          <div class="skill">
+            <i class="fa-solid fa-database"></i>
+            <h4>MongoDB</h4>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+
+    <h2 class="title">My <span>Projects</span></h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="project-content">
+          <h3>E-Commerce Website</h3>
+          <p>
+            Modern online shopping platform with payment gateway and admin panel.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="project-content">
+          <h3>Portfolio Website</h3>
+          <p>
+            Responsive developer portfolio with modern UI and animations.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="project-content">
+          <h3>Dashboard App</h3>
+          <p>
+            Analytics dashboard with authentication and realtime data.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <h2 class="title">Contact <span>Me</span></h2>
+
+    <p>
+      Let's work together and build something amazing.
+    </p>
+
+    <div class="socials">
+
+      <a href="https://github.com/vrsolanki1431-ui/vjjay-portfolio-.git"><i class="fa-brands fa-github"></i></a>
+      <a href=" https://www.linkedin.com/in/vijay-solanki-86376b409?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/vijaysinh31__?igsh=MWU5d3hnOGpvOWxyZQ==" ><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 VIJAY SOLANKI | Full Stack Developer
+  </footer>
+
+  <!-- TYPING EFFECT -->
+
+  <script>
+
+    const texts = [
+      "Full Stack Developer",
+      "Frontend Developer",
+      "Backend Developer",
+      "React Developer",
+      "Node.js Developer"
+    ];
+
+    let speed = 100;
+    const textElements = document.getElementById("typing");
+
+    let textIndex = 0;
+    let charIndex = 0;
+
+    function typeWriter() {
+
+      if(charIndex < texts[textIndex].length){
+
+        textElements.innerHTML += texts[textIndex].charAt(charIndex);
+
+        charIndex++;
+
+        setTimeout(typeWriter, speed);
+
+      }
+
+      else{
+
+        setTimeout(eraseText, 1500);
+
+      }
+
+    }
+
+    function eraseText(){
+
+      if(textElements.innerHTML.length > 0){
+
+        textElements.innerHTML =
+        textElements.innerHTML.slice(0,-1);
+
+        setTimeout(eraseText, 50);
+
+      }
+
+      else{
+
+        textIndex++;
+
+        if(textIndex >= texts.length){
+          textIndex = 0;
+        }
+
+        charIndex = 0;
+
+        setTimeout(typeWriter, 500);
+
+      }
+
+    }
+
+    window.onload = typeWriter;
+
+  </script>
+
+</body>
+</html>
